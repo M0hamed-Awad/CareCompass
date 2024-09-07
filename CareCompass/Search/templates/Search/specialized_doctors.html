@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/search_result_styles.css' %}">
+{% endblock %}
+
+{% block title %} Specialized Doctors {% endblock %}
+
+{% block content %}
+
+    <section>
+        <div class="specialty-header">
+            <i class="{{ specialty_icon }}"></i>
+            <p> {{ specialty }} Doctors </p>
+        </div>
+
+        {% if doctors %}
+
+            {% for doctor in doctors %}
+                {% include 'Search/doctors_list.html' %}
+            {% endfor %}
+            
+        {% else %}
+            <h2 style="text-align: center; margin-top: 50px;">NO Doctors Found!!</h2>
+        {% endif %}
+    </section>
+
+{% endblock %}

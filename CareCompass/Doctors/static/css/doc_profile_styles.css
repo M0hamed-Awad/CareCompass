@@ -1,0 +1,134 @@
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 150px 200px;
+}
+
+.doctor-profile-container {
+    width: 70%;
+    background-color: var(--neutral-white);
+    padding: 50px;
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    gap: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+.doctor-review {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.doctor-image img {
+    width: 250px;
+    border-radius: 50%;
+}
+
+.doctor-image {
+    position: absolute;
+    top: -180px;
+}
+
+.doctor-rating {
+    margin-top: 20px;
+    display: flex;
+}
+
+.doctor-rating i {
+    font-size: 2em;
+    margin: 12px;
+    color: var(--accent-orange-light);
+}
+
+.doctor-rating i~* {
+    margin-right: 10px;
+}
+
+.doctor-overview {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.doctor-details {
+    margin: 20px 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.doctor-name {
+    font-size: 2em;
+    font-weight: 800;
+    color: var(--secondary-green);
+    margin-bottom: 32px;
+}
+
+.doctor-details i {
+    margin-right: 20px;
+    font-size: 2em;
+    color: var(--primary-blue);
+}
+
+.doctor-details p {
+    margin-right: 20px;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+.doctor-bio {
+    margin: 20px 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--primary-blue-darker);
+}
+
+.bio-icon{
+    color: var(--primary-blue-darker);
+    font-size: 3em;
+    margin: 0 20px;
+}
+
+.doctor-phone {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    font-size: 1.4em;
+    font-weight: 600;
+    color: var(--accent-pinkish-red);
+}
+
+.doctor-phone i {
+    font-size: 1.5em;
+    margin-right: 20px;
+}
+
+.doctor-location {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--text-dark-gray);
+}
+
+.doctor-location i{
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: var(--error-red-light);
+}
+
+
+.doctor-overview hr {
+    width: 40%;
+    height: 3px;
+    background-color: var(--text-dark-gray-light);
+    margin: 20px 0;
+}

@@ -1,0 +1,18 @@
+<div class="doctor-row">
+    <div class="doctor-container">
+        <div class="doctor-image">
+            <img src="{{ doctor.get_profile_pic_url }}" alt="{{ doctor.full_name_in_english }}">
+        </div>
+        <div class="doctor-info">
+            <a href="{% url 'doctor_profile' %}?id={{ doctor.id }}">
+                <h3 class="doctor-name">Dr. {{ doctor.full_name_in_english }} <span class="rtl">( د. {{ doctor.full_name_in_arabic }} )</span></h3>
+            </a>
+            <h5 class="doctor-specialty">{{ doctor.specialization_in_english }} : <span class="rtl">( {{ doctor.specialization_in_arabic }} )</span></h5>
+            <p class="doctor-bio"> <span>Biography:</span> {{ doctor.english_bio }}</p>
+        </div>
+        <div class="doctor-contact">
+            <a href="{% url 'doctor_profile' %}?id={{ doctor.id }}" class="profile-link"> <button class="profile-btn">View Profile</button> </a>
+        </div>
+    </div>
+    <hr>
+</div>

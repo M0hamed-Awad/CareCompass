@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/doc_profile_styles.css' %}">
+{% endblock %}
+
+{% block title %} Doctor {% endblock %}
+
+{% block content %}
+
+    <section>
+        <div class="doctor-profile-container">
+            <div class="doctor-review">
+                <div class="doctor-image">
+                    <img src="{{ doctor.get_profile_pic_url }}" alt="{{ doctor.full_name_in_english }}">
+                </div>
+                <!-- TODO -->
+                <!-- <div class="doctor-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div> -->
+            </div>
+            <div class="doctor-overview">
+                <h3 class="doctor-name">Dr. {{ doctor.full_name_in_english }}</h3>
+                <h3 class="doctor-name rtl">د. {{ doctor.full_name_in_arabic }}</h3>
+                <hr>
+                <div class="doctor-details">
+                    <i class="{{ doctor_specialty_icon }}"></i>
+                    <p>{{ doctor.specialization_in_english }} ( {{ doctor.specialization_in_arabic }} ) &nbsp;&nbsp;&nbsp;• </p>
+                    <p>{{ doctor.gender }} &nbsp;&nbsp;&nbsp;• </p>
+                    <p>Age: {{ doctor.age }}</p>
+                </div>
+                <hr>
+
+                <div class="bio-icon"> <i class="fa-solid fa-id-badge"></i> </div>
+                <p class="doctor-bio"><strong>Biography:</strong> {{ doctor.english_bio }} </p>
+                <p class="doctor-bio rtl"><strong>السيرة:</strong> {{ doctor.arabic_bio }} </p>
+
+                <hr>
+                <p class="doctor-phone"> <i class="fa-solid fa-phone"></i> (+2){{ doctor.phone }} </p>
+                <hr>
+            </div>
+
+            <div class="doctor-location">
+                <i class="fa-solid fa-location-dot"></i>
+                <p> {{ doctor.address_in_english }} </p>
+                <p class="rtl"> {{ doctor.address_in_arabic }} </p>
+            </div>
+        </div>
+        <!-- <h1> {{ doctor.full_name_in_english }} </h1> -->
+    </section>
+
+{% endblock %}

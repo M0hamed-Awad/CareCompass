@@ -1,0 +1,42 @@
+{% load static %}
+
+<header>
+    <a href="{% url 'home' %}" class="logo">
+        <img src="{% static 'images/Logo.png' %}" alt="Logo">
+        CareCompass
+    </a>
+    <nav class="navigation-bar">
+        {% if user.is_authenticated %}
+            <div class="navigation-bar-links">
+                <div class="nav-link">
+                    <a href="/#find-doctor" id="find-doctor-link">Find a Doctor</a>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="nav-link">
+                    <a href="{% url 'home' %}">Home</a>
+                    <i class="fa-solid fa-house"></i>
+                </div>
+                <div class="nav-link">
+                    <a href="{% url 'logout' %}">Log out</a>
+                    <i class="fa-solid fa-door-open"></i>
+                </div>
+            </div>
+            <span class="separator"></span>
+            <p class="logged-in-user">Hi <a href="{% url 'user_profile' %}"> <span>{{ user.username }}</span> </a></p>
+            <div class="user-avatar">
+                <img src="{{ user.userprofile.profile_img.url }}" alt="{{ user.username }}">
+            </div>
+        {% else %}
+            <div class="navigation-bar-links">
+                <div class="nav-link">
+                    <a href="{% url 'login' %}">Login</a>
+                    <i class="fa-solid fa-sign-in-alt"></i>
+                </div>
+                <div class="nav-link">
+                    <a href="{% url 'sign_up' %}">Sign Up</a>
+                    <i class="fa-solid fa-user-plus"></i>
+                </div>
+            </div>
+        {% endif %}
+    </nav>
+</header>

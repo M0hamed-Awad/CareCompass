@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/home_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/search_styles.css' %}">
+{% endblock %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+    <section class="main">
+
+        <div class="main-container hero">
+            <div class="welcome-message">
+                <h2>Hello, <span>{{ user.username }}</span></h2>
+                <p>Welcome to the <span>CareCompass</span> World</p>
+            </div>
+            <div class="hero-description">
+                <h2>Your <span>&nbsp;Compass&nbsp;</span> for Quality Healthcare</h2>
+                <div class="web-stats">
+
+                    <div class="web-stats-info">
+                        <img src="{% static 'images/doctors_icon.png' %}" alt="Doctors">
+                        <p>Profiles for Every Doctor in Egypt</p>
+                    </div>
+
+                    <div class="web-stats-info">
+                        <img src="{% static 'images/find_doctor_icon.png' %}" alt="Doctors">
+                        <p>Search by What Matters Most to You</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="{% static 'images/Earth_Of_Doctors.png' %}" alt="Doctors Image">
+            </div>
+
+            <div id="find-doctor" class="search-container">
+                {% include 'Home/search_bar.html' %}
+            </div>
+        </div>
+
+    </section>
+
+    <section class="medical-specialties">
+        <h2 class="title">Popular Medical Specialties</h2>
+        <div class="specialties">
+            <a href="{% url 'specialized_doctors' %}?specialty=Dentistry">
+                <div class="specialty">
+                    <div class="specialty-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <p>Dentistry</p>
+                </div>
+            </a>
+            <a href="{% url 'specialized_doctors' %}?specialty=Cardiology">
+                <div class="specialty">
+                    <div class="specialty-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <p>Cardiology</p>
+                </div>
+            </a>
+            <a href="{% url 'specialized_doctors' %}?specialty=Neurology">
+                <div class="specialty">
+                    <div class="specialty-icon">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <p>Neurology</p>
+                </div>
+            </a>
+            <a href="{% url 'specialized_doctors' %}?specialty=Pediatrics">
+                <div class="specialty">
+                    <div class="specialty-icon">
+                        <i class="fa-solid fa-baby"></i>
+                    </div>
+                    <p>Pediatrics</p>
+                </div>
+            </a>
+            <a href="{% url 'specialized_doctors' %}?specialty=Orthopedics">
+                <div class="specialty">
+                    <div class="specialty-icon">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <p>Orthopedics</p>
+                </div>
+            </a>
+            <!-- <a href="{% url 'specialized_doctors' %}?specialty=Dermatology">
+                <div class="specialty">
+                    <div class="specialty-icon">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <p>Dermatology</p>
+                </div>
+            </a> -->
+            <a href="{% url 'specialized_doctors' %}?specialty=Ophthalmology">
+                <div class="specialty">
+                    <div class="specialty-icon">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <p>Ophthalmology</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+{% endblock %}
+
+

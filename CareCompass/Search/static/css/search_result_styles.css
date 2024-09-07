@@ -1,0 +1,137 @@
+section {
+    padding: 80px 200px;
+}
+
+.doctor-row {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid var(--accent-orange);
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--neutral-white);
+}
+
+.doctor-row hr {
+    width: 70%;
+    height: 5px;
+    background-color: var(--secondary-green-light);
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.doctor-container {
+    margin: 50px 0;
+    display: grid;
+    grid-template-columns: 1fr 3fr 2fr;
+}
+
+.doctor-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.doctor-image img {
+    width: 70%;
+    border-radius: 10px;
+}
+
+.doctor-info {
+    padding: 50px 20px;
+}
+
+.doctor-specialty {
+    font-size: 1.3em;
+    color: var(--text-dark-gray-dark);
+    margin-bottom: 10px;
+}
+
+.doctor-info a {
+    text-decoration: none;
+}
+
+.doctor-info a:hover .doctor-name {
+    transform: scale(1.01);
+    color: var(--secondary-green-light);
+}
+
+.doctor-name {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--secondary-green);
+    margin-bottom: 10px;
+    transition: 0.6s ease;
+}
+
+.doctor-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+}
+
+.doctor-contact .profile-btn {
+    width: 70%;
+    height: 55px;
+    color: var(--accent-orange);
+    font-size: 1.1em;
+    font-weight: 600;
+    background-color: var(--neutral-white);
+    border: 4px solid var(--accent-orange);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.doctor-contact .profile-btn:hover {
+    color: var(--neutral-white);
+    border-color: var(--neutral-white);
+    background-color: var(--accent-orange);
+}
+
+.doctor-bio {
+    font-weight: 500;
+    color: var(--text-dark-gray-light);
+}
+
+.doctor-bio span {
+    color: var(--text-dark-gray-dark);
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.profile-link {
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Specialized Doctors Page */
+
+
+.specialty-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4em;
+    background-color: var(--neutral-white);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.specialty-header i {
+    margin-right: 20px;
+    color: var(--accent-orange-light);
+}
+
+.specialty-header p {
+    color: var(--primary-blue-darker);
+    font-weight: 700;
+}

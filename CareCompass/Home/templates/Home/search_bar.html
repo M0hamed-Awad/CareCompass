@@ -1,0 +1,37 @@
+<div class="search-bar">
+    <form method="GET" class="search-form" action="{% url 'searched_doctors' %}">
+        {% csrf_token %}
+
+        <div class="search-group">
+            <div class="form-group">
+                <label for="area-input">Area</label>
+                <select id="area-input" name="Area" class="form-dropdown">
+                    <option disabled selected>Select an Area</option>
+                    {% for area in areas %}
+                        <option value="{{ area.0 }}" {% if request.GET.Area == area.0  %}selected{% endif %} >{{ area.0 }} : ( {{ area.1 }} )</option>
+                    {% endfor %}
+                </select>
+
+                <!-- <input type="text" name="location" placeholder="Cairo, Giza, ..." id="location-input" class="form-control"> -->
+            </div>
+
+            <div class="search-separator"></div>
+
+            <div class="form-group">
+                <label for="specialty-input">Specialty</label>
+                <select id="specialty-input" name="Specialty" class="form-dropdown">
+                    <option disabled selected>Select a Specialty</option>
+                    {% for specialty in specialties %}
+                    <option value="{{ specialty.0 }}" {% if request.GET.Specialty == specialty.0  %}selected{% endif %} >{{ specialty.0 }} : ( {{ specialty.1 }} )</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- TODO -->
+            <!-- Dependent Chained Dropdown Between City And Areas -->
+        </div>
+
+        <button type="submit"> <i class="fa-solid fa-magnifying-glass"></i> </button>
+
+    </form>
+</div>

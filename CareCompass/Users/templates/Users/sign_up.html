@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/users_forms.css' %}">
+{% endblock %}
+
+{% block title %} Sign Up {% endblock %}
+
+{% block content %}
+
+    <section>
+
+        <form method="post" autocomplete="off">
+
+            <div class="form-elements">
+
+                <div class="form-header">
+                    <h2>Sign Up</h2>
+                </div>
+
+                {% csrf_token %}
+
+                {% for field in form %}
+
+                    <div class="form-group">
+                        {{ field.label_tag }}
+                        <input 
+                            type="{{ field.field.widget.input_type }}"
+                            name="{{ field.name }}"
+                            id="{{ field.id_for_label }}"
+                            {% if field.value %} value="{{ field.value|stringformat:'s' }}" {% endif %}
+                            class="{% if field.errors %}invalid{% endif %}"
+                            placeholder="{{ field.field.widget.attrs.placeholder }}"
+                        />
+
+                        {% if field.help_text %}
+                            <small class="form-helper-text">{{ field.help_text }}</small>
+                        {% endif %}
+                        
+                        <div class="error-message">
+                            {% for error in field.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+                <p>Already Have An Account?&nbsp; Login <a href="{% url 'login' %}">Here</a>!</p>
+
+                <div class="form-group">
+                    <div class="form-buttons">
+                        <button type="submit" class="proceed-btn">Sign Up</button>
+                    </div>
+                </div>
+                
+            </div>
+
+        </form>
+
+    </section>
+    
+{% endblock %}

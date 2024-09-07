@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/users_forms.css' %}">
+{% endblock %}
+
+{% block title %} User Profile Settings {% endblock %}
+
+{% block content %}
+
+    <section class="user-profile-section">
+
+        <div class="user-profile-header">
+            <h2><a href="{% url 'home' %}">Home</a> / Account Settings for <strong>{{ user.username }}</strong></h2>
+        </div>
+        
+        <form method="post" enctype="multipart/form-data" autocomplete="off">
+            {% csrf_token %}
+
+            <div class="user-profile-image">
+                <img src="{{ user.userprofile.profile_img.url }}" alt="{{ user.username }} Image">
+            </div>
+
+            <div class="form-elements">
+                {% for field in user_form %}
+                    <div class="form-group">
+                        <input 
+                            type="{{ field.field.widget.input_type }}"
+                            name="{{ field.name }}"
+                            id="{{ field.id_for_label }}"
+                            {% if field.value %} value="{{ field.value|stringformat:'s' }}" {% endif %}
+                            class="{% if field.errors %}invalid{% endif %}"
+                        >
+                        <small class="form-helper-text">{{ field.help_text }}</small>
+                        <div class="error-message">
+                            {% for error in field.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+
+                {% for field in profile_form %}
+                    <div class="form-group">
+                        <input
+                            type="{{ field.field.widget.input_type }}"
+                            name="{{ field.name }}"
+                            id="{{ field.id_for_label }}"
+                            {% if field.value %} value="{{ field.value|stringformat:'s' }}" {% endif %}
+                            {% for attr, value in field.field.widget.attrs.items %} {{ attr }}="{{ value }}" {% endfor %}
+                            class="{% if field.errors %}invalid{% endif %}"
+                        >
+                        <small class="form-helper-text">{{ field.help_text }}</small>
+                        <div class="error-message">
+                            {% for error in field.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <div class="form-group">
+                    <div class="form-buttons">
+                        <button type="submit" class="proceed-btn">Save</button>
+                        <button class="cancel-btn"> <a href="{% url 'home' %}">Cancel</a></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </section>
+
+{% endblock %}
